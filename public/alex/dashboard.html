@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alex Dashboard (Dynamic)</title>
+    <link rel="stylesheet" href="/alex/tokens.css" />
+    <!-- NOTE: Replace this skeleton with the actual alex-dashboard.html markup.
+         Keep all ids/data-* hooks intact for dynamic binding. -->
+    <style>
+      body { background: var(--sigmatiq-dark); color: var(--text-primary); margin:0 }
+      header, footer, aside { position:fixed; }
+      aside { top:0; left:0; bottom:0; width:64px; border-right:1px solid var(--sigmatiq-border); }
+      header { top:0; left:64px; right:0; height:60px; display:flex; align-items:center; padding:0 16px; }
+      main { margin-left:64px; padding-top:60px; padding-bottom:60px; }
+      footer { left:64px; right:0; bottom:0; height:60px; border-top:1px solid var(--sigmatiq-border); }
+      .cards { display:grid; grid-template-columns: repeat(12, 1fr); gap:16px; padding:16px; }
+      .card { grid-column: span 4; background: var(--sigmatiq-surface); border:1px solid var(--sigmatiq-border); border-radius:12px; padding:16px; }
+      .live { width:8px; height:8px; border-radius:50%; display:inline-block; background:#666; margin-left:8px; }
+      .live.online { background: var(--success); }
+      .banner { background:#2a3f3f; color:#f5f5f7; padding:8px 12px; border-left:3px solid #ffb800; display:none }
+    </style>
+  </head>
+  <body>
+    <aside id="navItems"></aside>
+    <header>
+      <div style="flex:1">
+        <div id="timeDisplay">--:--</div>
+        <div id="marketStatus">Loading...</div>
+      </div>
+      <div style="flex:1; text-align:center">
+        <select id="viewMode"><option>Heat Map</option><option>List View</option><option>Grid View</option></select>
+        <select id="timeRange"><option>Today</option><option>This Week</option><option>This Month</option></select>
+        <select id="signalFilter"><option>Active Only</option><option>All Signals</option><option>Flagged</option></select>
+      </div>
+      <div style="flex:1; text-align:right">
+        <span>Live</span><span id="liveDot" class="live"></span>
+      </div>
+    </header>
+    <div id="errorBanner" class="banner"></div>
+    <main>
+      <div class="cards">
+        <div id="cardPortfolio" class="card"><h3>Portfolio</h3><div id="portfolioBody">Loading...</div></div>
+        <div id="cardActivity" class="card"><h3>Activity</h3><div id="activityBody" data-empty-text="No activity yet.">Loading...</div></div>
+        <div id="cardMarket" class="card"><h3>Market</h3><div id="marketBody">Loading...</div></div>
+      </div>
+    </main>
+    <footer></footer>
+    <script type="module" src="/src/controllers/alex/dashboard.ts"></script>
+  </body>
+  </html>
+

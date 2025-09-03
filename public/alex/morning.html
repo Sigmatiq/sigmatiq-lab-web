@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alex Morning (Dynamic)</title>
+    <link rel="stylesheet" href="/alex/tokens.css" />
+    <style>
+      body { background: var(--sigmatiq-dark); color: var(--text-primary); margin:0 }
+      .wrap { padding: 16px; }
+      .card { background: var(--sigmatiq-surface); border:1px solid var(--sigmatiq-border); border-radius:12px; padding:16px; margin-bottom:16px }
+      .tag { font-size:11px; color:#8FA5A5 }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card"><h3>Futures (Preview)</h3><div id="futuresBody">Loading...</div></div>
+      <div class="card"><h3>Overnight Movers</h3><div id="moversBody" data-empty-text="Run suggested gap screen.">Loading...</div></div>
+      <div class="card"><h3>Economic Calendar</h3><div id="econBody">Loading...</div></div>
+      <div class="card"><h3>Suggested Action <span class="tag">preview-safe</span></h3><div id="suggestBody">Loading...</div></div>
+      <div class="card"><h3>Opportunities (Persona: Alex)</h3><div id="oppsBody">Loading...</div></div>
+    </div>
+    <script type="module" src="/src/controllers/alex/morning.ts"></script>
+  </body>
+  </html>
+
